@@ -1,15 +1,30 @@
 ﻿@model Lost_and_Found.Models.Admin
 
-@{
-    ViewData["Title"] = "Edit";
-}
+@{ ViewData["Title"] = "Edit"; }
+<style>
+    body {
+        background-color: #9b93d1;
+    }
 
-<h1>Edit</h1>
+    .row {
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        margin-bottom: 10px;
+        justify-content: center;
+        align-items: center;
+        box-shadow: gray;
+    }
 
-<h4>Admin</h4>
-<hr />
+    .btn-secondary {
+        margin-left: 20px
+    }
+</style>
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-4 bg-white p-4 rounded">
+
+        <p class="text-center font-weight-bolder" style="font-size:25px;"><i class="fa-solid fa-user"></i></p>
+        <h6 class="text-center m-0 p-0">Edit Profile</h6>
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="AdminId" />
@@ -30,7 +45,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="Password" class="control-label"></label>
-                <input asp-for="Password" class="form-control" />
+                <input asp-for="Password" class="form-control" required />
                 <span asp-validation-for="Password" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -45,13 +60,11 @@
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-secondary ml-5">Back to List</a>
             </div>
+            <!-- ... (other form groups) ... -->
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {

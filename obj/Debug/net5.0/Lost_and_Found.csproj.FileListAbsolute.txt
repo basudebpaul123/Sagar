@@ -182,3 +182,5 @@ C:\Users\Administrator\source\repos\Lost_and_Found\obj\Debug\net5.0\Razor\Views\
 C:\Users\Administrator\source\repos\Lost_and_Found\obj\Debug\net5.0\Razor\Views\Claims\Details.cshtml.g.cs
 C:\Users\Administrator\source\repos\Lost_and_Found\obj\Debug\net5.0\Razor\Views\Claims\Edit.cshtml.g.cs
 C:\Users\Administrator\source\repos\Lost_and_Found\obj\Debug\net5.0\Razor\Views\Claims\Index.cshtml.g.cs
+C:\Users\Administrator\source\repos\Lost_and_Found\obj\Debug\net5.0\Razor\Views\Admins\Login.cshtml.g.cs
+C:\Users\Administrator\source\repos\Lost_and_Found\obj\Debug\net5.0\Razor\Views\Admins\error.cshtml.g.cs

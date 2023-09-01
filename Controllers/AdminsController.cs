@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Lost_and_Found.Models;
+using Microsoft.AspNetCore.Http;
 
 namespace Lost_and_Found.Controllers
 {
@@ -143,6 +144,48 @@ namespace Lost_and_Found.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
+
+        //User Login
+        [HttpGet]
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Login(Admin user)
+        {
+
+            var data = _context.Admins.Where(u => u.Email == user.Email && u.Password == user.Password).Count();
+            if (data > 0)
+            {
+
+
+                HttpContext.Session.SetString("FirstName", user.Email);
+                return View("~/Views/Home/Index.cshtml");
+
+            }
+            else
+            {
+
+                return RedirectToAction(nameof(error));
+            }
+
+
+        }
+
+        public ActionResult Logout(Admin user)
+        {
+            HttpContext.Session.Remove("FirstName");
+            return View("~/Views/Home/Index.cshtml");
+        }
+
+        public IActionResult error()
+        {
+            return View();
+        }
+
 
         private bool AdminExists(int id)
         {
